@@ -3,17 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using HeroService.Models;
 
 namespace HeroService.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api")]
     public class ValuesController : Controller
     {
+        private IEnumerable<Hero> heroes = new Hero[] { new Hero() { name = "Superman", id = 1 }, new Hero() { name = "Spider-man", id = 2 } };
         // GET api/values
-        [HttpGet]
-        public IEnumerable<string> Get()
+        [HttpGet("")]
+        public IEnumerable<Hero> Get()
         {
-            return new string[] { "value1", "value2" };
+            return heroes;
         }
 
         // GET api/values/5
