@@ -7,7 +7,7 @@ using HeroService.Models;
 
 namespace HeroService.Controllers
 {
-    [Route("api")]
+    [Route("api/values")]
     public class ValuesController : Controller
     {
         private IEnumerable<Hero> heroes = new Hero[] { new Hero() { name = "Superman", id = 1 }, new Hero() { name = "Spider-man", id = 2 } };
@@ -20,9 +20,9 @@ namespace HeroService.Controllers
 
         // GET api/values/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public Hero Get(int id)
         {
-            return "value";
+            return this.heroes.FirstOrDefault( h => h.id == id);
         }
 
         // POST api/values
