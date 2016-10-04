@@ -10,7 +10,11 @@ namespace HeroService.Controllers
     [Route("api/values")]
     public class ValuesController : Controller
     {
-        private IEnumerable<Hero> heroes = new Hero[] { new Hero() { name = "Superman", id = 1 }, new Hero() { name = "Spider-man", id = 2 } };
+        private IEnumerable<Hero> heroes = new Hero[] { new Hero() { name = "Abert's Towhee", id = 1 },
+            new Hero() { name = "Acadian Flycatcher", id = 2 },
+            new Hero(){ name = "Acorn Woodpecker", id = 3 },
+            new Hero(){ name = "African Collared-Dove", id = 4 }
+        };
         // GET api/values
         [HttpGet("")]
         public IEnumerable<Hero> Get()
@@ -22,7 +26,7 @@ namespace HeroService.Controllers
         [HttpGet("{id}")]
         public Hero Get(int id)
         {
-            return this.heroes.FirstOrDefault( h => h.id == id);
+            return this.heroes.FirstOrDefault(h => h.id == id);
         }
 
         // POST api/values
